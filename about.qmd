@@ -2,4 +2,11 @@
 title: "About"
 ---
 
-About this site
+## Background
+I grew up in Taiwan and moved to Vancouver when I was 19. I have an education background in psychology and social work but my career path have been focusing on health research field, specifically Health Economics and Outcomes Research field (HEOR). The majority of my role involves implementing Large Language Models (LLMs) or automation into research workflow to accelerate the process or validate the results.
+
+## Why data science
+After spending years working with LLMs, I decided to join this program because I wanted to learn more in depth about the foundations of LLMs.
+
+## Outside of data science
+I enjoy traveling and cooking! My favorite activity is recreating the dishes I ate in places I've traveled to. Recently, I've also been really enjoying reading history books, particularly about oppression and colonization.

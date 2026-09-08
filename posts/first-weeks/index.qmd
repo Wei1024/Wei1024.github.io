@@ -1,0 +1,8 @@
+---
+title: "My first weeks in MDS"
+author: "Wei Huang"
+date: 2026-09-08
+---
+The first week in MDS was really fun! After working for five years, it was exciting to go back to the classroom and learn. The pace is fast, so I was a bit nervous the first two days, but once I got a better understanding of the structure, things started to feel pretty smooth. I'm excited for what comes next!
+
+![My name tag and backpack.](name_backpack.jpg){width=250px}

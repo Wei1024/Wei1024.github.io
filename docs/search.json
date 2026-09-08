@@ -4,13 +4,41 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "I grew up in Taiwan and moved to Vancouver when I was 19. I have an education background in psychology and social work but my career path have been focusing on health research field, specifically Health Economics and Outcomes Research field (HEOR). The majority of my role involves implementing Large Language Models (LLMs) or automation into research workflow to accelerate the process or validate the results."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
+    "title": "Wei Huang",
+    "section": "",
+    "text": "Hi! My name is Wei. I’m from Taiwan and have lived in Vancouver for about 10 years. I’m currently a student in the Master of Data Science and Computational Linguistics program at UBC. Before joining the program, I worked in health research for five years as a researcher and AI developer, implementing LLMs into research workflows. After the program, I hope to apply what I learn to continue on a similar career path, in a more advanced role with more depth and responsibility."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I grew up in Taiwan and moved to Vancouver when I was 19. I have an education background in psychology and social work but my career path have been focusing on health research field, specifically Health Economics and Outcomes Research field (HEOR). The majority of my role involves implementing Large Language Models (LLMs) or automation into research workflow to accelerate the process or validate the results."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why data science",
+    "text": "Why data science\nAfter spending years working with LLMs, I decided to join this program because I wanted to learn more in depth about the foundations of LLMs."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of data science",
+    "text": "Outside of data science\nI enjoy traveling and cooking! My favorite activity is recreating the dishes I ate in places I’ve traveled to. Recently, I’ve also been really enjoying reading history books, particularly about oppression and colonization."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
     "title": "My first weeks in MDS",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "The first week in MDS was really fun! After working for five years, it was exciting to go back to the classroom and learn. The pace is fast, so I was a bit nervous the first two days, but once I got a better understanding of the structure, things started to feel pretty smooth. I’m excited for what comes next!\n\n\n\nMy name tag and backpack."
   }
 ]
