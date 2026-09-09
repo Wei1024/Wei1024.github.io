@@ -3,6 +3,10 @@ title: "My first weeks in MDS"
 author: "Wei Huang"
 date: 2026-09-08
 ---
-The first week in MDS was really fun! After working for five years, it was exciting to go back to the classroom and learn. The pace is fast, so I was a bit nervous the first two days, but once I got a better understanding of the structure, things started to feel pretty smooth. I'm excited for what comes next!
+The first week in MDS was really fun! After working for five years, it was exciting to go back to the classroom and learn. The pace is fast, and the schedule was a bit confusing at first, so I was a little nervous for the first two days.
+
+Thankfully, all the professors and teaching assistants are really nice. They always welcome questions and provide very detailed answers. The classmates are all really kind and supportive too. I've made some friends in the first few days, and working with them has been both fun and productive!
+
+Overall, it was a busy but great first week, and I'm excited for what comes next!
 
 ![My name tag and backpack.](name_backpack.jpg){width=250px}
