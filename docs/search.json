@@ -14,41 +14,6 @@
     "text": "Hi! My name is Wei. I’m from Taiwan and have lived in Vancouver for about 10 years. I’m currently a student in the Master of Data Science and Computational Linguistics program at UBC. Before joining the program, I worked in health research for five years as a researcher and AI developer, implementing LLMs into research workflows. After the program, I hope to apply what I learn to continue on a similar career path, in a more advanced role with more depth and responsibility."
   },
   {
-    "objectID": "posts/first-weeks/index.html",
-    "href": "posts/first-weeks/index.html",
-    "title": "My first weeks in MDS",
-    "section": "",
-    "text": "The first week in MDS was really fun! After working for five years, it was exciting to go back to the classroom and learn. The pace is fast, and the schedule was a bit confusing at first, so I was a little nervous for the first two days.\nThankfully, all the professors and teaching assistants are really nice. They always welcome questions and provide very detailed answers. The classmates are all really kind and supportive too. I’ve made some friends in the first few days, and working with them has been both fun and productive!\nOverall, it was a busy but great first week, and I’m excited for what comes next!\n\n\n\nMy name tag and backpack."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I grew up in Taiwan and moved to Vancouver when I was 19. I have an education background in psychology and social work but my career path have been focusing on health research field, specifically Health Economics and Outcomes Research field (HEOR). The majority of my role involves implementing Large Language Models (LLMs) or automation into research workflow to accelerate the process or validate the results."
-  },
-  {
-    "objectID": "about.html#background",
-    "href": "about.html#background",
-    "title": "About",
-    "section": "",
-    "text": "I grew up in Taiwan and moved to Vancouver when I was 19. I have an education background in psychology and social work but my career path have been focusing on health research field, specifically Health Economics and Outcomes Research field (HEOR). The majority of my role involves implementing Large Language Models (LLMs) or automation into research workflow to accelerate the process or validate the results."
-  },
-  {
-    "objectID": "about.html#why-data-science",
-    "href": "about.html#why-data-science",
-    "title": "About",
-    "section": "Why data science",
-    "text": "Why data science\nAfter spending years working with LLMs, I decided to join this program because I wanted to learn more in depth about the foundations of LLMs."
-  },
-  {
-    "objectID": "about.html#outside-of-data-science",
-    "href": "about.html#outside-of-data-science",
-    "title": "About",
-    "section": "Outside of data science",
-    "text": "Outside of data science\nI enjoy traveling and cooking! My favorite activity is recreating the dishes I ate in places I’ve traveled to. Recently, I’ve also been really enjoying reading history books, particularly about oppression and colonization."
-  },
-  {
     "objectID": "posts/gapminder-r/index.html",
     "href": "posts/gapminder-r/index.html",
     "title": "GDP and life expectancy in 2007",
@@ -84,6 +49,13 @@
     "text": "Step 4: Visualization\nFinally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart. Note that since we have not yet learned about visualization, this snippet is a direct copy from Claude.\n\n   ggplot(gap07, aes(x = gdpPercap, y = lifeExp, colour = continent)) +\n    geom_point() +\n    labs(x = \"GDP per capita (US$)\", y = \"Life expectancy (years)\")\n\n\n\n\n\n\n\nFigure 1: Life expectancy vs. GDP per capita by country, 2007.\n\n\n\n\n\nThe plot shows an interesting pattern. Although the overall relationship is positive, life expectancy rises rapidly among low-income countries, then levels off and remains stable among middle- and high-income countries. Meanwhile, countries with similarly low incomes can have very different life expectancies (e.g., countries in Africa versus Asia). This suggests that other factors besides GDP per capita have a strong influence on life expectancy."
   },
   {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "The first week in MDS was really fun! After working for five years, it was exciting to go back to the classroom and learn. The pace is fast, and the schedule was a bit confusing at first, so I was a little nervous for the first two days.\nThankfully, all the professors and teaching assistants are really nice. They always welcome questions and provide very detailed answers. The classmates are all really kind and supportive too. I’ve made some friends in the first few days, and working with them has been both fun and productive!\nOverall, it was a busy but great first week, and I’m excited for what comes next!\n\n\n\nMy name tag and backpack."
+  },
+  {
     "objectID": "posts/penguins-python/index.html",
     "href": "posts/penguins-python/index.html",
     "title": "Do heavier penguins have longer flippers?",
@@ -117,5 +89,33 @@
     "title": "Do heavier penguins have longer flippers?",
     "section": "Step 4: Visualization",
     "text": "Step 4: Visualization\nFinally, I create a scatter plot that shows this correlation, with the points coloured by species to separate them. Note that since we have not yet learned about visualization, this snippet is a direct copy from Claude.\n\nfig, ax = plt.subplots(figsize=(7, 5))\n\nfor species, group in penguins_clean.groupby(\"species\"):\n    ax.scatter(group[\"flipper_length_mm\"], group[\"body_mass_g\"],\n                label=species, alpha=0.7)\n\nax.set_xlabel(\"Flipper length (mm)\")\nax.set_ylabel(\"Body mass (g)\")\nax.legend(title=\"Species\")\nplt.show()\n\n\n\n\n\n\n\nFigure 1: Body mass vs. flipper length of Palmer penguins, by species.\n\n\n\n\n\nThe data shows a strong positive linear relationship between body mass and flipper length: heavier penguins tend to have longer flippers. We can also see that Gentoo penguins are heavier and have longer flippers than the other two species, which are similar to each other in both weight and flipper length."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I grew up in Taiwan and moved to Vancouver when I was 19. I have an education background in psychology and social work but my career path have been focusing on health research field, specifically Health Economics and Outcomes Research field (HEOR). The majority of my role involves implementing Large Language Models (LLMs) or automation into research workflow to accelerate the process or validate the results."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I grew up in Taiwan and moved to Vancouver when I was 19. I have an education background in psychology and social work but my career path have been focusing on health research field, specifically Health Economics and Outcomes Research field (HEOR). The majority of my role involves implementing Large Language Models (LLMs) or automation into research workflow to accelerate the process or validate the results."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why data science",
+    "text": "Why data science\nAfter spending years working with LLMs, I decided to join this program because I wanted to learn more in depth about the foundations of LLMs."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of data science",
+    "text": "Outside of data science\nI enjoy traveling and cooking! My favorite activity is recreating the dishes I ate in places I’ve traveled to. Recently, I’ve also been really enjoying reading history books, particularly about oppression and colonization."
   }
 ]
