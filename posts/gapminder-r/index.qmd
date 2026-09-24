@@ -1,0 +1,61 @@
+---
+title: "GDP and life expectancy in 2007"
+author: "Wei Huang"
+date: "2026-09-22"
+---
+Data: [Gapminder](https://www.gapminder.org/data/), via the
+  [gapminder R package](https://github.com/jennybc/gapminder). Licensed CC BY 4.0.
+
+The gapminder dataset contains life expectancy, population, and GDP per capita data for 142 countries from 1952 to 2007. In this post, I explore the correlation between GDP per capita and life expectancy, using data from 2007, the most recent year in the dataset.
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+  library(gapminder)
+  library(dplyr)
+  library(ggplot2)
+```
+
+## Step 1: Filter the data
+First, I filter the data to keep only the records from 2007.
+```{r}
+#| label: filter-2007
+gap07 <- gapminder |>
+    filter(year == 2007)
+gap07
+```
+
+## Step 2: Compare median GDP and life expectancy by continent
+Next, I compare the median GDP and life expectancy by continent. Oceania has the highest median GDP and life expectancy, while Africa has the lowest on both.
+```{r}
+#| label: continent-comparison
+comparison <- gap07 |>
+    group_by(continent) |>
+    summarise(
+        countries = n(),
+        median_gdp = round(median(gdpPercap), 2),
+        median_lifeExp = round(median(lifeExp), 2)
+    )
+comparison
+```
+
+## Step 3: Correlation
+Then I calculate the correlation between these two variables. The result is 0.68, a fairly strong positive relationship.
+```{r}
+#| label: correlations
+corr <- cor(gap07$gdpPercap, gap07$lifeExp)
+corr
+```
+
+## Step 4: Visualization
+Finally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart.
+```{r}
+#| label: fig-lifeexp-gdp
+#| fig-cap: "Life expectancy vs. GDP per capita by country, 2007."
+   ggplot(gap07, aes(x = gdpPercap, y = lifeExp, colour = continent)) +
+    geom_point() +
+    labs(x = "GDP per capita (US$)", y = "Life expectancy (years)")
+```
+
+The plot shows an interesting pattern. Although the overall relationship is positive, life expectancy rises rapidly among low-income countries, then levels off and remains stable among middle- and high-income countries. Meanwhile, countries with similarly low incomes can have very different life expectancies (e.g., countries in Africa versus Asia). This suggests that other factors besides GDP per capita have a strong influence on life expectancy.

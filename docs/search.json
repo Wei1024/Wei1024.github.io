@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nWei Huang\n\n\n\n\n\nNo matching items"
+    "text": "GDP and life expectancy in 2007\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nWei Huang\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nWei Huang\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -47,5 +47,40 @@
     "title": "About",
     "section": "Outside of data science",
     "text": "Outside of data science\nI enjoy traveling and cooking! My favorite activity is recreating the dishes I ate in places I’ve traveled to. Recently, I’ve also been really enjoying reading history books, particularly about oppression and colonization."
+  },
+  {
+    "objectID": "posts/gapminder-r/index.html",
+    "href": "posts/gapminder-r/index.html",
+    "title": "GDP and life expectancy in 2007",
+    "section": "",
+    "text": "Data: Gapminder, via the gapminder R package. Licensed CC BY 4.0.\nThe gapminder dataset contains life expectancy, population, and GDP per capita data for 142 countries from 1952 to 2007. In this post, I explore the correlation between GDP per capita and life expectancy, using data from 2007, the most recent year in the dataset.\nlibrary(gapminder)\n  library(dplyr)\n  library(ggplot2)"
+  },
+  {
+    "objectID": "posts/gapminder-r/index.html#step-1-filter-the-data",
+    "href": "posts/gapminder-r/index.html#step-1-filter-the-data",
+    "title": "GDP and life expectancy in 2007",
+    "section": "Step 1: Filter the data",
+    "text": "Step 1: Filter the data\nFirst, I filter the data to keep only the records from 2007.\n\ngap07 &lt;- gapminder |&gt;\n    filter(year == 2007)\ngap07\n\n# A tibble: 142 × 6\n   country     continent  year lifeExp       pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       2007    43.8  31889923      975.\n 2 Albania     Europe     2007    76.4   3600523     5937.\n 3 Algeria     Africa     2007    72.3  33333216     6223.\n 4 Angola      Africa     2007    42.7  12420476     4797.\n 5 Argentina   Americas   2007    75.3  40301927    12779.\n 6 Australia   Oceania    2007    81.2  20434176    34435.\n 7 Austria     Europe     2007    79.8   8199783    36126.\n 8 Bahrain     Asia       2007    75.6    708573    29796.\n 9 Bangladesh  Asia       2007    64.1 150448339     1391.\n10 Belgium     Europe     2007    79.4  10392226    33693.\n# ℹ 132 more rows"
+  },
+  {
+    "objectID": "posts/gapminder-r/index.html#step-2-compare-median-gdp-and-life-expectancy-by-continent",
+    "href": "posts/gapminder-r/index.html#step-2-compare-median-gdp-and-life-expectancy-by-continent",
+    "title": "GDP and life expectancy in 2007",
+    "section": "Step 2: Compare median GDP and life expectancy by continent",
+    "text": "Step 2: Compare median GDP and life expectancy by continent\nNext, I compare the median GDP and life expectancy by continent. Oceania has the highest median GDP and life expectancy, while Africa has the lowest on both.\n\ncomparison &lt;- gap07 |&gt;\n    group_by(continent) |&gt;\n    summarise(\n        countries = n(),\n        median_gdp = round(median(gdpPercap), 2),\n        median_lifeExp = round(median(lifeExp), 2)\n    )\ncomparison\n\n# A tibble: 5 × 4\n  continent countries median_gdp median_lifeExp\n  &lt;fct&gt;         &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt;\n1 Africa           52      1452.           52.9\n2 Americas         25      8948.           72.9\n3 Asia             33      4471.           72.4\n4 Europe           30     28054.           78.6\n5 Oceania           2     29810.           80.7"
+  },
+  {
+    "objectID": "posts/gapminder-r/index.html#step-3-correlation",
+    "href": "posts/gapminder-r/index.html#step-3-correlation",
+    "title": "GDP and life expectancy in 2007",
+    "section": "Step 3: Correlation",
+    "text": "Step 3: Correlation\nThen I calculate the correlation between these two variables. The result is 0.68, a fairly strong positive relationship.\n\ncorr &lt;- cor(gap07$gdpPercap, gap07$lifeExp)\ncorr\n\n[1] 0.6786624"
+  },
+  {
+    "objectID": "posts/gapminder-r/index.html#step-4-visualization",
+    "href": "posts/gapminder-r/index.html#step-4-visualization",
+    "title": "GDP and life expectancy in 2007",
+    "section": "Step 4: Visualization",
+    "text": "Step 4: Visualization\nFinally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart.\n\n   ggplot(gap07, aes(x = gdpPercap, y = lifeExp, colour = continent)) +\n    geom_point() +\n    labs(x = \"GDP per capita (US$)\", y = \"Life expectancy (years)\")\n\n\n\n\n\n\n\nFigure 1: Life expectancy vs. GDP per capita by country, 2007.\n\n\n\n\n\nThe plot shows an interesting pattern. Although the overall relationship is positive, life expectancy rises rapidly among low-income countries, then levels off and remains stable among middle- and high-income countries. Meanwhile, countries with similarly low incomes can have very different life expectancies (e.g., countries in Africa versus Asia). This suggests that other factors besides GDP per capita have a strong influence on life expectancy."
   }
 ]
