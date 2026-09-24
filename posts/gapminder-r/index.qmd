@@ -49,7 +49,7 @@ corr
 ```
 
 ## Step 4: Visualization
-Finally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart.
+Finally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart. Note that since we have not yet learned about visualization, this snippet is a direct copy from Claude.
 ```{r}
 #| label: fig-lifeexp-gdp
 #| fig-cap: "Life expectancy vs. GDP per capita by country, 2007."

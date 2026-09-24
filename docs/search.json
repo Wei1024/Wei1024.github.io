@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "GDP and life expectancy in 2007\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nWei Huang\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nWei Huang\n\n\n\n\n\nNo matching items"
+    "text": "Do heavier penguins have longer flippers?\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nWei Huang\n\n\n\n\n\n\n\n\n\n\n\n\nGDP and life expectancy in 2007\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nWei Huang\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nWei Huang\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -81,6 +81,41 @@
     "href": "posts/gapminder-r/index.html#step-4-visualization",
     "title": "GDP and life expectancy in 2007",
     "section": "Step 4: Visualization",
-    "text": "Step 4: Visualization\nFinally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart.\n\n   ggplot(gap07, aes(x = gdpPercap, y = lifeExp, colour = continent)) +\n    geom_point() +\n    labs(x = \"GDP per capita (US$)\", y = \"Life expectancy (years)\")\n\n\n\n\n\n\n\nFigure 1: Life expectancy vs. GDP per capita by country, 2007.\n\n\n\n\n\nThe plot shows an interesting pattern. Although the overall relationship is positive, life expectancy rises rapidly among low-income countries, then levels off and remains stable among middle- and high-income countries. Meanwhile, countries with similarly low incomes can have very different life expectancies (e.g., countries in Africa versus Asia). This suggests that other factors besides GDP per capita have a strong influence on life expectancy."
+    "text": "Step 4: Visualization\nFinally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart. Note that since we have not yet learned about visualization, this snippet is a direct copy from Claude.\n\n   ggplot(gap07, aes(x = gdpPercap, y = lifeExp, colour = continent)) +\n    geom_point() +\n    labs(x = \"GDP per capita (US$)\", y = \"Life expectancy (years)\")\n\n\n\n\n\n\n\nFigure 1: Life expectancy vs. GDP per capita by country, 2007.\n\n\n\n\n\nThe plot shows an interesting pattern. Although the overall relationship is positive, life expectancy rises rapidly among low-income countries, then levels off and remains stable among middle- and high-income countries. Meanwhile, countries with similarly low incomes can have very different life expectancies (e.g., countries in Africa versus Asia). This suggests that other factors besides GDP per capita have a strong influence on life expectancy."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html",
+    "href": "posts/penguins-python/index.html",
+    "title": "Do heavier penguins have longer flippers?",
+    "section": "",
+    "text": "Data: Palmer Penguins, collected by Dr. Kristen Gorman at Palmer Station Antarctica LTER, via the palmerpenguins Python package. Licensed CC0.\nThis dataset contains body measurements for 344 penguins of three species: Adelie, Chinstrap, and Gentoo. The data was collected on three islands in Antarctica from 2007 to 2009. In this post, I explore whether heavier penguins have longer flippers.\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom palmerpenguins import load_penguins"
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#step-1-load-and-clean-the-data",
+    "href": "posts/penguins-python/index.html#step-1-load-and-clean-the-data",
+    "title": "Do heavier penguins have longer flippers?",
+    "section": "Step 1: Load and clean the data",
+    "text": "Step 1: Load and clean the data\n\npenguins = load_penguins()\npenguins_clean = penguins.dropna()\nprint(f\"rows before cleaning: {len(penguins)}\")\nprint(f\"rows after cleaning: {len(penguins_clean)}\")\n\nrows before cleaning: 344\nrows after cleaning: 333\n\n\nEleven rows have one or more missing values. I excluded them from the analysis, leaving 333 complete rows."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#step-2-compare-median-body-mass-and-flipper-length-by-species",
+    "href": "posts/penguins-python/index.html#step-2-compare-median-body-mass-and-flipper-length-by-species",
+    "title": "Do heavier penguins have longer flippers?",
+    "section": "Step 2: Compare median body mass and flipper length by species",
+    "text": "Step 2: Compare median body mass and flipper length by species\nNext, I compare the median body mass and flipper length by species.\n\ncomparison = (\n    penguins_clean\n    .groupby(\"species\")\n    .agg(\n        penguins=(\"species\", \"size\"),\n        median_body_mass_g=(\"body_mass_g\", \"median\"),\n        median_flipper_length=(\"flipper_length_mm\", \"median\")\n    )\n)\ncomparison\n\n\n\n\n\n\n\n\npenguins\nmedian_body_mass_g\nmedian_flipper_length\n\n\nspecies\n\n\n\n\n\n\n\nAdelie\n146\n3700.0\n190.0\n\n\nChinstrap\n68\n3700.0\n196.0\n\n\nGentoo\n119\n5050.0\n216.0\n\n\n\n\n\n\n\nThe comparison shows that Gentoo penguins are the heaviest and have the longest flippers. Chinstrap and Adelie have the same median weight and similar median flipper length."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#step-3-analyze-the-correlation",
+    "href": "posts/penguins-python/index.html#step-3-analyze-the-correlation",
+    "title": "Do heavier penguins have longer flippers?",
+    "section": "Step 3: Analyze the correlation",
+    "text": "Step 3: Analyze the correlation\nThen I calculate the correlation between body mass and flipper length.\n\ncorrelation = round(penguins_clean[\"body_mass_g\"].corr(penguins_clean[\"flipper_length_mm\"]), 2)\n\ncorrelation\n\nnp.float64(0.87)\n\n\nThe correlation is 0.87, a strong positive relationship."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#step-4-visualization",
+    "href": "posts/penguins-python/index.html#step-4-visualization",
+    "title": "Do heavier penguins have longer flippers?",
+    "section": "Step 4: Visualization",
+    "text": "Step 4: Visualization\nFinally, I create a scatter plot that shows this correlation, with the points coloured by species to separate them. Note that since we have not yet learned about visualization, this snippet is a direct copy from Claude.\n\nfig, ax = plt.subplots(figsize=(7, 5))\n\nfor species, group in penguins_clean.groupby(\"species\"):\n    ax.scatter(group[\"flipper_length_mm\"], group[\"body_mass_g\"],\n                label=species, alpha=0.7)\n\nax.set_xlabel(\"Flipper length (mm)\")\nax.set_ylabel(\"Body mass (g)\")\nax.legend(title=\"Species\")\nplt.show()\n\n\n\n\n\n\n\nFigure 1: Body mass vs. flipper length of Palmer penguins, by species.\n\n\n\n\n\nThe data shows a strong positive linear relationship between body mass and flipper length: heavier penguins tend to have longer flippers. We can also see that Gentoo penguins are heavier and have longer flippers than the other two species, which are similar to each other in both weight and flipper length."
   }
 ]

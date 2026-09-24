@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/penguins-python/index.html",
       "/posts/gapminder-r/index.html",
       "/posts/first-weeks/index.html"
     ]

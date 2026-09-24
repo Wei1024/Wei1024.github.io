@@ -270,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-4-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-visualization">Step 4: Visualization</h2>
-<p>Finally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart.</p>
+<p>Finally, I create a scatter plot that shows this positive relationship, with the points coloured by continent to tell them apart. Note that since we have not yet learned about visualization, this snippet is a direct copy from Claude.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggplot</span>(gap07, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>

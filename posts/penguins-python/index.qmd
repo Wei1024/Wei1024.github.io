@@ -1,0 +1,81 @@
+---
+title: "Do heavier penguins have longer flippers?"
+author: "Wei Huang"
+date: "2026-09-24"
+---
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/),
+collected by Dr. Kristen Gorman at Palmer Station Antarctica LTER,
+via the [palmerpenguins Python package](https://pypi.org/project/palmerpenguins/).
+Licensed CC0.
+
+This dataset contains body measurements for 344 penguins of three species: Adelie, Chinstrap, and Gentoo. The data was collected on three islands in Antarctica from 2007 to 2009. In this post, I explore whether heavier penguins have longer flippers.
+
+```{python}
+#| label: setup
+#| warning: false
+#| message: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from palmerpenguins import load_penguins
+```
+
+## Step 1: Load and clean the data
+```{python}
+#| label: load-and-clean
+penguins = load_penguins()
+penguins_clean = penguins.dropna()
+print(f"rows before cleaning: {len(penguins)}")
+print(f"rows after cleaning: {len(penguins_clean)}")
+```
+
+Eleven rows have one or more missing values. I excluded them from the analysis, leaving 333 complete rows.
+
+## Step 2: Compare median body mass and flipper length by species
+Next, I compare the median body mass and flipper length by species.
+```{python}
+#| label: comparison
+comparison = (
+    penguins_clean
+    .groupby("species")
+    .agg(
+        penguins=("species", "size"),
+        median_body_mass_g=("body_mass_g", "median"),
+        median_flipper_length=("flipper_length_mm", "median")
+    )
+)
+comparison
+```
+
+The comparison shows that Gentoo penguins are the heaviest and have the longest flippers. Chinstrap and Adelie have the same median weight and similar median flipper length.
+
+## Step 3: Analyze the correlation
+Then I calculate the correlation between body mass and flipper length.
+```{python}
+#| label: correlation
+correlation = round(penguins_clean["body_mass_g"].corr(penguins_clean["flipper_length_mm"]), 2)
+
+correlation
+```
+
+The correlation is 0.87, a strong positive relationship.
+
+## Step 4: Visualization
+Finally, I create a scatter plot that shows this correlation, with the points coloured by species to separate them. Note that since we have not yet learned about visualization, this snippet is a direct copy from Claude.
+```{python}
+#| label: fig-flipper-mass
+#| fig-cap: "Body mass vs. flipper length of Palmer penguins, by species."
+fig, ax = plt.subplots(figsize=(7, 5))
+
+for species, group in penguins_clean.groupby("species"):
+    ax.scatter(group["flipper_length_mm"], group["body_mass_g"],
+                label=species, alpha=0.7)
+
+ax.set_xlabel("Flipper length (mm)")
+ax.set_ylabel("Body mass (g)")
+ax.legend(title="Species")
+plt.show()
+```
+
+The data shows a strong positive linear relationship between body mass and flipper length: heavier penguins tend to have longer flippers. We can also see that Gentoo penguins are heavier and have longer flippers than the other two species, which are similar to each other in both weight and flipper length.
